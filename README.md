@@ -7,7 +7,7 @@ Based on: https://github.com/janmashat/docker-drupal-brightcove
 
 ### How to use:
 
-#### Clone repo:
+##### Clone repo:
 
 ```sh
 git clone https://github.com/janmashat/docker-drupal7.git
