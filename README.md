@@ -5,43 +5,48 @@ This is a recipe for building a Docker container with Drupal 7, including Linux 
 
 Based on: https://github.com/janmashat/docker-drupal-brightcove
 
-### How to use:
+### How to use
 
-##### Clone repo:
+#### Clone repo
 
 ```sh
-git clone https://github.com/janmashat/docker-drupal7.git
-cd docker-drupal7
+$ git clone https://github.com/janmashat/docker-drupal7.git
+$ cd docker-drupal7
 ```
 
 Note: sources.list includes de.debian.org for the main repo, which can be modified for a closer location.
 
-#### Build container:
+#### Build container
 
 Before building, make sure you have Docker Engine installed: https://docs.docker.com/engine/installation/
 
 ```sh
-docker build -t drupal7 .
+docker-drupal7$ docker build -t drupal7 .
 ```
 
-#### Run container with docroot stored inside:
+#### Run container
+
+##### With docroot stored inside:
 
 ```sh
-docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
+docker-drupal7$ docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
 ```
 
----OR---
-
-#### Run container with docroot stored on the host:
+##### OR with docroot stored on the host:
 
 ```sh
-docker run -it --name drupal7 -p 80:80 -p 9001:9001 -v path_on_host/docroot:/var/www/html drupal7
+docker-drupal7$ docker run -it --name drupal7 -p 80:80 -p 9001:9001 -v path_on_host/docroot:/var/www/html drupal7
 ```
 
-#### After the container starts, you'll be able to create a new screen in it and run bash - followed by drush or other commands:
+#### Visit site
+
+Your Drupal site should now be available at http://127.0.0.1 (Linux) or your docker-machine ip (Mac/Win): https://docs.docker.com/machine/get-started/
+
+#### Optional commands
+
+Once the container is running, you'll be able to create a new screen and run commands:
 
 ```sh
-$ docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
 NOTICE: /var/www/html/sites/default/settings.php doesn't exist, creating DB and installing Drupal...
 151217 10:38:30 mysqld_safe Can't log to error log and syslog at the same time.  Remove all --log-error configuration options for --syslog to take effect.
 151217 10:38:30 mysqld_safe Logging to '/var/log/mysql/error.log'.
