@@ -14,28 +14,28 @@ $ git clone https://github.com/janmashat/docker-drupal7.git
 $ cd docker-drupal7
 ```
 
-Note: sources.list includes de.debian.org for the main repo, which can be modified for a closer location.
-
 #### Build container
 
 Before building, make sure you have Docker Engine installed: https://docs.docker.com/engine/installation/
 
+Note: sources.list includes de.debian.org for the main repo, which can be modified for a closer location.
+
 ```sh
-docker-drupal7$ docker build -t drupal7 .
+docker build -t drupal7 .
 ```
 
 #### Run container
 
-##### With docroot stored inside:
+##### EITHER with docroot stored inside the container:
 
 ```sh
-docker-drupal7$ docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
+docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
 ```
 
 ##### OR with docroot stored on the host:
 
 ```sh
-docker-drupal7$ docker run -it --name drupal7 -p 80:80 -p 9001:9001 -v path_on_host/docroot:/var/www/html drupal7
+docker run -it --name drupal7 -p 80:80 -p 9001:9001 -v path_on_host/docroot:/var/www/html drupal7
 ```
 
 #### Visit site
