@@ -1,14 +1,13 @@
 docker-drupal7
 ==============
 
-This is a recipe for building a [Docker](https://www.docker.com/) container with Drupal 7, including Linux (Debian 8), Apache and MySQL.
-Before building, make sure you have [Docker Engine](https://docs.docker.com/engine/installation/) installed.
+This is a recipe for building a Docker container with Drupal 7, including Linux (Debian 8), Apache and MySQL.
 
 Based on: https://github.com/janmashat/docker-drupal-brightcove
 
 ### How to use:
 
-1. Clone repo:
+#### Clone repo:
 
 ```sh
 git clone https://github.com/janmashat/docker-drupal7.git
@@ -17,13 +16,15 @@ cd docker-drupal7
 
 Note: sources.list includes de.debian.org for the main repo, which can be modified for a closer location.
 
-2. Build container:
+#### Build container:
+
+Before building, make sure you have Docker Engine installed: https://docs.docker.com/engine/installation/
 
 ```sh
 docker build -t drupal7 .
 ```
 
-3. Run container with docroot stored in the container:
+#### Run container with docroot stored inside:
 
 ```sh
 docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
@@ -31,13 +32,13 @@ docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
 
 ---OR---
 
-3. Run container with docroot stored on the host:
+#### Run container with docroot stored on the host:
 
 ```sh
-docker run -it --name drupal7 -p 80:80 -p 9001:9001 -v path_on_the_host:/var/www drupal7
+docker run -it --name drupal7 -p 80:80 -p 9001:9001 -v path_on_host/docroot:/var/www/html drupal7
 ```
 
-4. The container will start [GNU Screen](https://www.gnu.org/software/screen/) so you can create a new screen and run bash, followed by drush and other commands:
+#### After the container starts, you'll be able to create a new screen in it and run bash - followed by drush or other commands:
 
 ```sh
 $ docker run -it --name drupal7 -p 80:80 -p 9001:9001 drupal7
